@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>ElderThing_LaserGun</defName>
+    <statBases>
+      <Mass>3.50</Mass>
+      <RangedWeapon_Cooldown>3.16</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.0</SightsEfficiency>
+      <ShotSpread>0.1</ShotSpread>
+      <SwayFactor>1.0</SwayFactor>
+      <Bulk>4.50</Bulk>
+      <WorkToMake>50000</WorkToMake>
+    </statBases>
+    <costList>
+		<Plasteel>80</Plasteel>
+		<Component>20</Component>
+    </costList>
+    <Properties>
+		<recoilAmount>0.10</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_ElderThingLaserGun</defaultProjectile>
+      <warmupTime>1.0</warmupTime>
+      <range>23</range>
+      <soundCast>ElderThings_LaserFire</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+	  <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>5</magazineSize>
+      <reloadTime>4.25</reloadTime>
+      <ammoSet>AmmoSet_ElderThingLaserGun</ammoSet>
+    </AmmoUser>
+    <FireModes>
+    	<aiUseBurstMode>FALSE</aiUseBurstMode>
+    	<aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+  </Operation>
+  
+  <Operation Class="PatchOperationReplace">
+	<xpath>*/ThingDef[defName="ElderThing_LaserGun"]/tools</xpath>
+	<value>
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>pentagonal grip</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetration>0.2</armorPenetration>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>blast chamber</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.6</cooldownTime>
+				<armorPenetration>0.25</armorPenetration>
+			</li>
+		</tools>
+	</value>	
+  </Operation>
+  
+</Patch>

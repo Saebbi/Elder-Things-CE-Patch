@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoElderThingLaserGun</defName>
+      <label>Laser gun ED</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_ElderThingLaserGun</defName>
+    <label>Laser gun ammo ED</label>
+    <ammoTypes>
+      <Ammo_ElderThingLaserGun>Bullet_ElderThingLaserGun</Ammo_ElderThingLaserGun>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="ElderThingLaserGunBase" ParentName="AmmoBase" Abstract="True">
+    <description>Laser gun ammo ED</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoElderThingLaserGun</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ElderThingLaserGunBase">
+    <defName>Ammo_ElderThingLaserGun</defName>
+    <label>Laser gun cartridge ED</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/FMJ</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.95</MarketValue>
+    </statBases>
+    <ammoClass>Charge</ammoClass>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseElderThingLaserGun" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Projectiles/ElderThingLaser</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseElderThingLaserGun">
+    <defName>Bullet_ElderThingLaserGun</defName>
+    <label>Laser bolt</label>
+    <projectile>
+      <damageAmountBase>60</damageAmountBase>
+      <armorPenetration>0.95</armorPenetration>
+    </projectile>
+  </ThingDef>
+	
+</Defs>
